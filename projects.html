@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кирилл - Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1117; /* Темный фон */
+    color: #c9d1d9; /* Светлый текст */
+}
+
+a {
+    text-decoration: none; /* Убрать подчеркивание */
+    color: rgb(255, 255, 255);       /* Установить цвет текста */
+    cursor: pointer;   /* Вернуть курсор "указатель", чтобы показать, что это ссылка */
+}
+
+.container {
+    display: flex;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    padding: 20px;
+}
+
+/* Profile Section */
+.profile {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #30363d; /* Темная обводка */
+}
+
+/* Pinned Projects Section */
+.pinned-projects {
+    flex: 1; /* Занимает оставшееся пространство */
+}
+
+.pinned-projects h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивное количество столбцов */
+    gap: 20px;
+}
+
+/* Project Card */
+.project-card {
+    background-color: #161b22;
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #30363d;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.project-header i { /* иконка компьютера */
+    margin-right: 5px;
+    color: #58a6ff; /* Голубая иконка */
+}
+
+.project-header h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #fff;
+}
+
+.project-visibility {
+    background-color: #21262d;
+    color: #8b949e;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+.project-options {
+    color: #8b949e;
+    cursor: pointer;
+}
+
+.project-details {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.project-language-icon {
+    color: #f85149; /* Красный цвет для HTML */
+    margin-right: 5px;
+}
+
+.project-details span {
+    color: #8b949e;
+}
+
+/* Customize Pins Link */
+.customize-pins {
+    display: block;
+    margin-top: 20px;
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* вертикальное расположение на мобильных */
+        align-items: center;
+    }
+
+    .profile {
+        width: 150px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <section class="profile">
+            <img src="icon.png" alt="Фотография профиля">
+        </section>
+
+        <section class="pinned-projects">
+            <h2>Проекты</h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i> <!-- Иконка компьютера -->
+                        <a href="https://kirill-Fe.github.io/cat-clicker">cat-clicker</a>
+                        <span class="project-visibility">Public</span>
+                        <div class="project-options">
+                            <i class="fas fa-ellipsis-v"></i> <!-- Иконка троеточия -->
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <a href="#">new-project</a>
+                        <span class="project-visibility">close</span>
+                        <div class="project-options">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <a href="https://Kirill-Fe.github.io/NFC-METKA-MEM">NFC-METKA-MEM</a>
+                        <span class="project-visibility">Public template</span>
+                        <div class="project-options">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
