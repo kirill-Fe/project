@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florik - projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
   <style>
         body {
@@ -111,6 +112,30 @@ a {
     color: #8b949e;
 }
 
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px; /* Увеличенный размер для удобства нажатия */
+  background-color: #0088cc; /* Типичный цвет Telegram */
+  color: #ffffff; /* Белый текст */
+  text-decoration: none; /* Убираем подчеркивание */
+  border-radius: 8px; /* Скругленные углы */
+  font-size: 16px; /* Размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  transition: background-color 0.3s ease; /* Плавный эффект при наведении */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Небольшая тень для выделения */
+}
+
+.contact-button:hover {
+  background-color: #0077b3; /* Затемняем цвет при наведении */
+}
+
+.contact-button i {
+  margin-right: 8px; /* Отступ между иконкой и текстом */
+  font-size: 18px; /* Размер иконки */
+}
+
 /* Customize Pins Link */
 .customize-pins {
     display: block;
@@ -147,7 +172,10 @@ a {
         </section>
 
         <section class="pinned-projects">
-            <h2>Проекты</h2> <a href="https://t.me/Kirill_Florik">@Kirill_Florik</a>
+            <h2>Проекты</h2> 
+            <a href="https://t.me/Kirill_Florik" class="contact-button">
+                <i class="fab fa-telegram"></i> @Kirill_Florik
+            </a>
             <div class="project-grid">
 
                 <div class="project-card">
