@@ -255,6 +255,45 @@
         #logout-button:hover {
             background-color: #f33;
         }
+
+        /* Стили для добавления пользователей */
+        #add-user-form {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+        }
+
+        #add-user-form label {
+            color: #c9d1d9;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #add-user-form input {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            background-color: #161b22;
+            color: #c9d1d9;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+        }
+
+        #add-user-form button {
+            background-color: #0088cc;
+            color: #ffffff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #add-user-form button:hover {
+            background-color: #0077b3;
+        }
     </style>
 </head>
 
@@ -266,7 +305,7 @@
         <a href="#" id="register-link">Зарегистрироваться</a>
     </div>
 
-        <!-- Профиль пользователя -->
+    <!-- Профиль пользователя -->
     <div class="auth-container" id="user-profile">
         <p id="profile-nickname"></p>
         <p id="profile-id"></p>
@@ -276,7 +315,7 @@
 
     <div class="container">
         <section class="profile">
-            <img src="icon.png" alt="Фотография профиля">
+            <img src="" alt="Фотография профиля">
         </section>
 
         <section class="pinned-projects">
@@ -300,7 +339,8 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <i class="fas fa-desktop"></i>                        <h3><a href="https://kirill-fe.github.io/thimbles/">thimbles</a></h3>
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/thimbles/">thimbles</a></h3>
                         <span class="project-visibility">Public game</span>
                     </div>
                     <div class="project-details">
@@ -385,7 +425,7 @@
             </div>
             <!-- Ссылка для тестеров и админов -->
             <div id="tester-link" style="display: none;">
-                <a href="тестер.html">Ссылка для тестеров и админов</a>
+                <a href="tester.html">Ссылка для тестеров и админов</a>
             </div>
 
             <!-- Панель администратора -->
@@ -402,6 +442,16 @@
                     <option value="admin">Администратор</option>
                 </select>
                 <button id="assign-role">Назначить роль</button>
+
+                <!-- Форма для добавления пользователей -->
+                <div id="add-user-form">
+                    <h4>Добавить пользователя</h4>
+                    <label for="new-username">Логин:</label>
+                    <input type="text" id="new-username">
+                    <label for="new-password">Пароль:</label>
+                    <input type="password" id="new-password">
+                    <button id="add-user-button">Добавить</button>
+                </div>
             </div>
         </section>
     </div>
@@ -455,6 +505,12 @@
         const profileId = document.getElementById('profile-id');
         const profileRole = document.getElementById('profile-role');
         const logoutButton = document.getElementById('logout-button');
+
+        // Добавление пользователя
+        const addUserForm = document.getElementById('add-user-form');
+        const newUsernameInput = document.getElementById('new-username');
+        const newPasswordInput = document.getElementById('new-password');
+        const addUserButton = document.getElementById('add-user-button');
 
         // Массив для хранения пользователей (в реальном проекте нужно хранить на сервере)
         let users = JSON.parse(localStorage.getItem('users')) || []; // Загружаем из localStorage
@@ -644,7 +700,7 @@
 
         // Функция для обновления UI в зависимости от роли пользователя
         function updateRoleBasedUI() {
-            if (currentUser) {
+             if (currentUser) {
                 if (currentUser.role === 'admin') {
                     showAdminPanel();
                     showTesterLink();
@@ -656,25 +712,36 @@
                     hideTesterLink();
                 }
             } else {
+
                 hideAdminPanel();
                 hideTesterLink();
             }
         }
 
-        // Инициализация: добавление администратора по умолчанию (только если еще нет пользователей)
-        if (users.length === 0) {
-            const adminUser = {
-                id: generateUserId(),
-                username: 'admin',
-                password: 'admin',
-                role: 'admin'
-            };
-            users.push(adminUser);
-            saveUsersToLocalStorage();
-             // После создания админа сразу его логиним
-            currentUser = adminUser;
-             saveCurrentUserToLocalStorage();
-        }
+        // Обработчик события для добавления пользователя через админ-панель
+        addUserButton.addEventListener('click', () => {
+            const newUsername = newUsernameInput.value;
+            const newPassword = newPasswordInput.value;
+
+            if (newUsername && newPassword) {
+                 const newUser = {
+                    id: generateUserId(),
+                    username:newUsername,
+                    password: newPassword,
+                    role: 'user'
+                }
+                users.push(newUser);
+                saveUsersToLocalStorage() // Сохраняем пользователей
+                updateUsersList();
+                newUsernameInput.value = '';
+                newPasswordInput.value = '';
+
+                alert('Пользователь успешно добавлен!');
+            } else {
+                alert('Пожалуйста, заполните все поля для нового пользователя.');
+            }
+        });
+
 
         updateUsersList();
 
@@ -683,8 +750,9 @@
             showUserProfile(currentUser);
              updateRoleBasedUI(); // Обновляем UI в зависимости от роли
         }
-
-
+        else{
+            updateRoleBasedUI(); // Ensure correct UI is shown
+        }
     </script>
 </body>
 
