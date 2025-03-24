@@ -589,7 +589,7 @@
             profileNickname.textContent = `Никнейм: ${user.username}`;
             profileId.textContent = `ID: ${user.id}`;
             profileRole.textContent = `Роль: ${user.role}`;
-            userProfile.style.display = 'flex';  // Исправлено на 'flex'
+            userProfile.style.style.display = 'flex';  // Исправлено на 'flex'
         }
 
         // Функция для скрытия профиля пользователя и отображения ссылок входа/регистрации
@@ -598,46 +598,36 @@
             userProfile.style.display = 'none';
         }
 
-        // Обработчики событий для открытия и закрытия модальных окон
-        loginLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showModal(loginModal);
-        });
+        // Общая функция для создания пользователя (и регистрация, и добавление админом)
+        function createUser(username, password) {
+            const newUser = {
+                id: generateUserId(),
+                username: username,
+                password: password,
+                role: 'user'
+            };
 
-        registerLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showModal(registerModal);
-        });
+            users.push(newUser);
+            saveUsersToLocalStorage();
+            updateUsersList();
+            return newUser; // Возвращаем созданного пользователя
+        }
 
-        loginCancel.addEventListener('click', () => {
-            hideModal(loginModal);
-        });
 
-        registerCancel.addEventListener('click', () => {
-            hideModal(registerModal);
-        });
-
-        // Обработчик события для регистрации
+         // Обработчик события для регистрации
         registerButton.addEventListener('click', () => {
             const username = document.getElementById('register-username').value;
             const password = document.getElementById('register-password').value;
 
             if (username && password) {
-                const newUser = {
-                    id: generateUserId(),
-                    username: username,
-                    password: password,
-                    role: 'user' // Роль по умолчанию
-                };
-                users.push(newUser);
-                saveUsersToLocalStorage(); // Сохраняем пользователей в localStorage
-                updateUsersList();
+                const newUser = createUser(username, password); // Используем общую функцию
                 alert('Регистрация успешна!');
                 hideModal(registerModal);
                 currentUser = newUser; // Автоматический вход
-                saveCurrentUserToLocalStorage(); // Сохраняем текущего пользователя
-                showUserProfile(currentUser); // Отображение профиля
-                updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+                saveCurrentUserToLocalStorage();
+                showUserProfile(currentUser);
+                updateRoleBasedUI();
+
             } else {
                 alert('Пожалуйста, заполните все поля.');
             }
@@ -652,11 +642,11 @@
 
             if (user) {
                 currentUser = user;
-                saveCurrentUserToLocalStorage(); // Сохраняем текущего пользователя
+                saveCurrentUserToLocalStorage();
                 alert(`Вход успешен! Добро пожаловать, ${username}!`);
                 hideModal(loginModal);
-                showUserProfile(currentUser); // Отображение профиля
-                updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+                showUserProfile(currentUser);
+                updateRoleBasedUI();
 
             } else {
                 alert('Неверный логин или пароль.');
@@ -673,7 +663,7 @@
 
             if (user) {
                 user.role = newRole;
-                saveUsersToLocalStorage(); // Обновляем пользователей в localStorage
+                saveUsersToLocalStorage();
                 alert(`Роль для пользователя ${user.username} изменена на ${newRole}.`);
                 // Если текущий пользователь изменил свою роль, перезагружаем страницу.
                 if (currentUser && currentUser.id === userId) {
@@ -694,13 +684,11 @@
             currentUser = null;
             localStorage.removeItem('currentUser'); //  Удаляем текущего пользователя
             hideUserProfile();
-            hideAdminPanel();
-            hideTesterLink();
         });
 
         // Функция для обновления UI в зависимости от роли пользователя
         function updateRoleBasedUI() {
-             if (currentUser) {
+            if (currentUser) {
                 if (currentUser.role === 'admin') {
                     showAdminPanel();
                     showTesterLink();
@@ -712,7 +700,6 @@
                     hideTesterLink();
                 }
             } else {
-
                 hideAdminPanel();
                 hideTesterLink();
             }
@@ -724,15 +711,7 @@
             const newPassword = newPasswordInput.value;
 
             if (newUsername && newPassword) {
-                 const newUser = {
-                    id: generateUserId(),
-                    username:newUsername,
-                    password: newPassword,
-                    role: 'user'
-                }
-                users.push(newUser);
-                saveUsersToLocalStorage() // Сохраняем пользователей
-                updateUsersList();
+                createUser(newUsername, newPassword); // Используем общую функцию
                 newUsernameInput.value = '';
                 newPasswordInput.value = '';
 
@@ -748,9 +727,8 @@
         // При загрузке страницы, проверяем, есть ли текущий пользователь в localStorage
         if (currentUser) {
             showUserProfile(currentUser);
-             updateRoleBasedUI(); // Обновляем UI в зависимости от роли
-        }
-        else{
+            updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+        } else {
             updateRoleBasedUI(); // Ensure correct UI is shown
         }
     </script>
