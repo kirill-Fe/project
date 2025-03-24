@@ -315,7 +315,7 @@
 
     <div class="container">
         <section class="profile">
-            <img src="icon.png" alt="Фотография профиля">
+            <img src="" alt="Фотография профиля">
         </section>
 
         <section class="pinned-projects">
@@ -589,7 +589,7 @@
             profileNickname.textContent = `Никнейм: ${user.username}`;
             profileId.textContent = `ID: ${user.id}`;
             profileRole.textContent = `Роль: ${user.role}`;
-            userProfile.style.style.display = 'flex';  // Исправлено на 'flex'
+            userProfile.style.display = 'flex';
         }
 
         // Функция для скрытия профиля пользователя и отображения ссылок входа/регистрации
@@ -684,6 +684,7 @@
             currentUser = null;
             localStorage.removeItem('currentUser'); //  Удаляем текущего пользователя
             hideUserProfile();
+            updateRoleBasedUI();
         });
 
         // Функция для обновления UI в зависимости от роли пользователя
