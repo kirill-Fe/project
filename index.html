@@ -665,13 +665,15 @@
                 user.role = newRole;
                 saveUsersToLocalStorage();
                 alert(`Роль для пользователя ${user.username} изменена на ${newRole}.`);
-                // Если текущий пользователь изменил свою роль, перезагружаем страницу.
-                if (currentUser && currentUser.id === userId) {
-                    currentUser = user; // Update current user object
+
+                // Обновляем информацию о текущем пользователе, если он сам меняет свою роль
+                 if (currentUser && currentUser.id === userId) {
+                    currentUser = {...user}; // Create a copy
                     saveCurrentUserToLocalStorage();
-                    updateRoleBasedUI();     // Обновляем UI
-                    location.reload();  // Перезагружаем страницу (лучше переделать, но для простоты пока так)
-                }
+                    showUserProfile(currentUser); // Update profile display
+                    updateRoleBasedUI();
+                 }
+                updateUsersList();
 
             } else {
                 alert('Пользователь не найден.');
@@ -685,6 +687,7 @@
             localStorage.removeItem('currentUser'); //  Удаляем текущего пользователя
             hideUserProfile();
             updateRoleBasedUI();
+            authLinks.style.display = 'flex';
         });
 
         // Функция для обновления UI в зависимости от роли пользователя
@@ -700,6 +703,7 @@
                     hideAdminPanel();
                     hideTesterLink();
                 }
+                showUserProfile(currentUser); // Make sure the profile is displayed when logged in.
             } else {
                 hideAdminPanel();
                 hideTesterLink();
