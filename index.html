@@ -2,681 +2,690 @@
 <html lang="ru">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Florik - Проекты</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="shortcut icon" href="icon.png" type="image/x-icon">
-<style>
-    body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #0d1117;
-        color: #c9d1d9;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florik - Проекты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
 
-    a {
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-        cursor: pointer;
-        transition: color 0.3s ease;
-    }
+        a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-    a:hover {
-        color: #58a6ff;
-    }
+        a:hover {
+            color: #58a6ff;
+        }
 
-    .container {
-        display: flex;
-        align-items: flex-start;
-        padding: 20px;
-    }
-
-    .profile {
-        width: 200px;
-        margin-right: 30px;
-        text-align: center;
-    }
-
-    .profile img {
-        width: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #30363d;
-    }
-
-    .pinned-projects {
-        flex: 1;
-    }
-
-    .pinned-projects h2 {
-        color: #fff;
-        margin-bottom: 20px;
-    }
-
-    .project-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(300px, 1fr));
-        gap: 20px;
-    }
-
-    .project-card {
-        background-color: #161b22;
-        border-radius: 6px;
-        padding: 15px;
-        border: 1px solid #30363d;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .project-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-
-    .project-header i {
-        margin-right: 5px;
-        color: #58a6ff;
-    }
-
-    .project-header h3 {
-        font-size: 1.2em;
-        margin: 0;
-        color: #fff;
-    }
-
-    .project-visibility {
-        background-color: #21262d;
-        color: #8b949e;
-        padding: 3px 8px;
-        border-radius: 20px;
-        font-size: 0.8em;
-    }
-
-    .project-details {
-        display: flex;
-        align-items: center;
-        font-size: 0.9em;
-    }
-
-    .project-language-icon {
-        color: #f85149;
-        margin-right: 5px;
-    }
-
-    .project-details span {
-        color: #8b949e;
-    }
-
-    .contact-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 24px;
-        background-color: #0088cc;
-        color: #ffffff;
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        margin-bottom: 20px;
-    }
-
-    .contact-button:hover {
-        background-color: #0077b3;
-    }
-
-    .contact-button i {
-        margin-right: 8px;
-        font-size: 18px;
-    }
-
-    @media (max-width: 768px) {
         .container {
-            flex-direction: column;
-            align-items: center;
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
         }
 
         .profile {
-            width: 150px;
-            margin-right: 0;
+            width: 200px;
+            margin-right: 30px;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #30363d;
+        }
+
+        .pinned-projects {
+            flex: 1;
+        }
+
+        .pinned-projects h2 {
+            color: #fff;
             margin-bottom: 20px;
         }
 
         .project-grid {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(300px, 1fr));
+            gap: 20px;
         }
-    }
 
-    .project-card a {
-        color: #ffffff;
-        text-decoration: none;
-    }
+        .project-card {
+            background-color: #161b22;
+            border-radius: 6px;
+            padding: 15px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    /* Стили для системы входа/регистрации */
-    .auth-container {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
 
-    .auth-container a,
-    .auth-container button {
-        background-color: #30363d;
-        color: #c9d1d9;
-        padding: 8px 12px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-    }
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
 
-    .auth-container a:hover,
-    .auth-container button:hover {
-        background-color: #58a6ff;
-        color: #0d1117;
-    }
+        .project-header i {
+            margin-right: 5px;
+            color: #58a6ff;
+        }
 
-    #admin-panel {
-        margin-top: 20px;
-        padding: 15px;
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        border-radius: 6px;
-    }
+        .project-header h3 {
+            font-size: 1.2em;
+            margin: 0;
+            color: #fff;
+        }
 
-    #admin-panel h3 {
-        color: #fff;
-        margin-bottom: 10px;
-    }
+        .project-visibility {
+            background-color: #21262d;
+            color: #8b949e;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
 
-    #admin-panel label {
-        color: #c9d1d9;
-        display: block;
-        margin-bottom: 5px;
-    }
+        .project-details {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
 
-    #admin-panel select {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        background-color: #21262d;
-        color: #c9d1d9;
-        border: 1px solid #30363d;
-        border-radius: 4px;
-    }
+        .project-language-icon {
+            color: #f85149;
+            margin-right: 5px;
+        }
 
-    #admin-panel button {
-        background-color: #0088cc;
-        color: #ffffff;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+        .project-details span {
+            color: #8b949e;
+        }
 
-    #admin-panel button:hover {
-        background-color: #0077b3;
-    }
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background-color: #0088cc;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
 
-    #tester-link {
-        margin-top: 20px;
-    }
-    /* Стили для профиля пользователя */
-    #user-profile {
-        display: none;
-        flex-direction: column; /* Чтобы nickname, id и роль шли друг за другом */
-        align-items: flex-end; /* Выравнивание по правому краю */
-    }
+        .contact-button:hover {
+            background-color: #0077b3;
+        }
 
-    #user-profile p {
-        margin: 5px 0; /* Уменьшил отступы сверху и снизу */
-        font-size: 0.9em; /* Уменьшение размера шрифта для компактности */
-    }
+        .contact-button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
 
-    #logout-button {
-        background-color: #d33;
-    }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    #logout-button:hover {
-        background-color: #f33;
-    }
-</style>
+            .profile {
+                width: 150px;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Стили для системы входа/регистрации */
+        .auth-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .auth-container a,
+        .auth-container button {
+            background-color: #30363d;
+            color: #c9d1d9;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .auth-container a:hover,
+        .auth-container button:hover {
+            background-color: #58a6ff;
+            color: #0d1117;
+        }
+
+        #admin-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        #admin-panel h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        #admin-panel label {
+            color: #c9d1d9;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #admin-panel select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            background-color: #21262d;
+            color: #c9d1d9;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+        }
+
+        #admin-panel button {
+            background-color: #0088cc;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #admin-panel button:hover {
+            background-color: #0077b3;
+        }
+
+        #tester-link {
+            margin-top: 20px;
+        }
+        /* Стили для профиля пользователя */
+        #user-profile {
+            display: none;
+            flex-direction: column; /* Чтобы nickname, id и роль шли друг за другом */
+            align-items: flex-end; /* Выравнивание по правому краю */
+        }
+
+        #user-profile p {
+            margin: 5px 0; /* Уменьшил отступы сверху и снизу */
+            font-size: 0.9em; /* Уменьшение размера шрифта для компактности */
+        }
+
+        #logout-button {
+            background-color: #d33;
+        }
+
+        #logout-button:hover {
+            background-color: #f33;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Система входа/регистрации -->
-<div class="auth-container" id="auth-links">
-    <a href="#" id="login-link">Войти</a>
-    <a href="#" id="register-link">Зарегистрироваться</a>
-</div>
-
-    <!-- Профиль пользователя -->
-<div class="auth-container" id="user-profile">
-    <p id="profile-nickname"></p>
-    <p id="profile-id"></p>
-    <p id="profile-role"></p>
-    <button id="logout-button">Выйти</button>
-</div>
-
-<div class="container">
-    <section class="profile">
-        <img src="icon.png" alt="Фотография профиля">
-    </section>
-
-    <section class="pinned-projects">
-        <h2>Проекты</h2>
-        <a href="https://t.me/Kirill_Florik" class="contact-button">
-            <i class="fab fa-telegram"></i> Предложение по идее сайта(на сайте будет ваша тг ссылка)
-        </a>
-        <div class="project-grid">
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/cat-clicker">cat-clicker</a></h3>
-                    <span class="project-visibility">Public game</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/thimbles/">thimbles</a></h3>
-                    <span class="project-visibility">Public game</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/snake/">Змейка</a></h3>
-                    <span class="project-visibility">Public game(ПК)</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/hello/">hello</a></h3>
-                    <span class="project-visibility">Public</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/sell/">Заработок для подростков</a></h3>
-                    <span class="project-visibility">Public</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/tic-tac/">tic-tac</a></h3>
-                    <span class="project-visibility">Public game</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="https://kirill-fe.github.io/space-memory-game/">space-memory-game</a></h3>
-                    <span class="project-visibility">Public game</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-header">
-                    <i class="fas fa-desktop"></i>
-                    <h3><a href="#">new</a></h3>
-                    <span class="project-visibility">close</span>
-                </div>
-                <div class="project-details">
-                    <i class="fas fa-circle project-language-icon"></i>
-                    <span>HTML</span>
-                </div>
-            </div>
-
-        </div>
-        <!-- Ссылка для тестеров и админов -->
-        <div id="tester-link" style="display: none;">
-            <a href="тестер.html">Ссылка для тестеров и админов</a>
-        </div>
-
-        <!-- Панель администратора -->
-        <div id="admin-panel" style="display: none;">
-            <h3>Панель администратора</h3>
-            <label for="user-select">Выберите пользователя:</label>
-            <select id="user-select">
-                <!-- Опции будут добавлены через JavaScript -->
-            </select>
-            <label for="role-select">Выберите роль:</label>
-            <select id="role-select">
-                <option value="user">Пользователь</option>
-                <option value="tester">Тестировщик</option>
-                <option value="admin">Администратор</option>
-            </select>
-            <button id="assign-role">Назначить роль</button>
-        </div>
-    </section>
-</div>
-
-<!-- Модальные окна для входа и регистрации -->
-<div id="login-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
-    <div style="background-color: #161b22; padding: 20px; border-radius: 5px;">
-        <h2>Вход</h2>
-        <label for="login-username">Логин:</label><br>
-        <input type="text" id="login-username" name="login-username"><br><br>
-        <label for="login-password">Пароль:</label><br>
-        <input type="password" id="login-password" name="login-password"><br><br>
-        <button id="login-button">Войти</button>
-        <button id="login-cancel">Отмена</button>
+    <!-- Система входа/регистрации -->
+    <div class="auth-container" id="auth-links">
+        <a href="#" id="login-link">Войти</a>
+        <a href="#" id="register-link">Зарегистрироваться</a>
     </div>
-</div>
 
-<div id="register-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
-    <div style="background-color: #161b22; padding: 20px; border-radius: 5px;">
-        <h2>Регистрация</h2>
-        <label for="register-username">Логин:</label><br>
-        <input type="text" id="register-username" name="register-username"><br><br>
-        <label for="register-password">Пароль:</label><br>
-        <input type="password" id="register-password" name="register-password"><br><br>
-        <button id="register-button">Зарегистрироваться</button>
-        <button id="register-cancel">Отмена</button>
+        <!-- Профиль пользователя -->
+    <div class="auth-container" id="user-profile">
+        <p id="profile-nickname"></p>
+        <p id="profile-id"></p>
+        <p id="profile-role"></p>
+        <button id="logout-button">Выйти</button>
     </div>
-</div>
+
+    <div class="container">
+        <section class="profile">
+            <img src="" alt="Фотография профиля">
+        </section>
+
+        <section class="pinned-projects">
+            <h2>Проекты</h2>
+            <a href="https://t.me/Kirill_Florik" class="contact-button">
+                <i class="fab fa-telegram"></i> Предложение по идее сайта(на сайте будет ваша тг ссылка)
+            </a>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/cat-clicker">cat-clicker</a></h3>
+                        <span class="project-visibility">Public game</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>                        <h3><a href="https://kirill-fe.github.io/thimbles/">thimbles</a></h3>
+                        <span class="project-visibility">Public game</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/snake/">Змейка</a></h3>
+                        <span class="project-visibility">Public game(ПК)</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/hello/">hello</a></h3>
+                        <span class="project-visibility">Public</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/sell/">Заработок для подростков</a></h3>
+                        <span class="project-visibility">Public</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/tic-tac/">tic-tac</a></h3>
+                        <span class="project-visibility">Public game</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="https://kirill-fe.github.io/space-memory-game/">space-memory-game</a></h3>
+                        <span class="project-visibility">Public game</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
 
 
-<script>
-    // Получаем элементы DOM
-    const loginLink = document.getElementById('login-link');
-    const registerLink = document.getElementById('register-link');
-    const loginModal = document.getElementById('login-modal');
-    const registerModal = document.getElementById('register-modal');
-    const loginCancel = document.getElementById('login-cancel');
-    const registerCancel = document.getElementById('register-cancel');
-    const loginButton = document.getElementById('login-button');
-    const registerButton = document.getElementById('register-button');
-    const adminPanel = document.getElementById('admin-panel');
-    const userSelect = document.getElementById('user-select');
-    const roleSelect = document.getElementById('role-select');
-    const assignRoleButton = document.getElementById('assign-role');
-    const testerLink = document.getElementById('tester-link');
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3><a href="#">new</a></h3>
+                        <span class="project-visibility">close</span>
+                    </div>
+                    <div class="project-details">
+                        <i class="fas fa-circle project-language-icon"></i>
+                        <span>HTML</span>
+                    </div>
+                </div>
 
-    // Новые элементы
-    const authLinks = document.getElementById('auth-links');
-    const userProfile = document.getElementById('user-profile');
-    const profileNickname = document.getElementById('profile-nickname');
-    const profileId = document.getElementById('profile-id');
-    const profileRole = document.getElementById('profile-role');
-    const logoutButton = document.getElementById('logout-button');
+            </div>
+            <!-- Ссылка для тестеров и админов -->
+            <div id="tester-link" style="display: none;">
+                <a href="тестер.html">Ссылка для тестеров и админов</a>
+            </div>
 
-    // Массив для хранения пользователей (в реальном проекте нужно хранить на сервере)
-    let users = JSON.parse(localStorage.getItem('users')) || []; // Загружаем из localStorage
-    let currentUser = JSON.parse(localStorage.getItem('currentUser')); // Загружаем из localStorage
+            <!-- Панель администратора -->
+            <div id="admin-panel" style="display: none;">
+                <h3>Панель администратора</h3>
+                <label for="user-select">Выберите пользователя:</label>
+                <select id="user-select">
+                    <!-- Опции будут добавлены через JavaScript -->
+                </select>
+                <label for="role-select">Выберите роль:</label>
+                <select id="role-select">
+                    <option value="user">Пользователь</option>
+                    <option value="tester">Тестировщик</option>
+                    <option value="admin">Администратор</option>
+                </select>
+                <button id="assign-role">Назначить роль</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Модальные окна для входа и регистрации -->
+    <div id="login-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div style="background-color: #161b22; padding: 20px; border-radius: 5px;">
+            <h2>Вход</h2>
+            <label for="login-username">Логин:</label><br>
+            <input type="text" id="login-username" name="login-username"><br><br>
+            <label for="login-password">Пароль:</label><br>
+            <input type="password" id="login-password" name="login-password"><br><br>
+            <button id="login-button">Войти</button>
+            <button id="login-cancel">Отмена</button>
+        </div>
+    </div>
+
+    <div id="register-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div style="background-color: #161b22; padding: 20px; border-radius: 5px;">
+            <h2>Регистрация</h2>
+            <label for="register-username">Логин:</label><br>
+            <input type="text" id="register-username" name="register-username"><br><br>
+            <label for="register-password">Пароль:</label><br>
+            <input type="password" id="register-password" name="register-password"><br><br>
+            <button id="register-button">Зарегистрироваться</button>
+            <button id="register-cancel">Отмена</button>
+        </div>
+    </div>
 
 
-    // Функция для сохранения пользователей в localStorage
-    function saveUsersToLocalStorage() {
-        localStorage.setItem('users', JSON.stringify(users));
-    }
+    <script>
+        // Получаем элементы DOM
+        const loginLink = document.getElementById('login-link');
+        const registerLink = document.getElementById('register-link');
+        const loginModal = document.getElementById('login-modal');
+        const registerModal = document.getElementById('register-modal');
+        const loginCancel = document.getElementById('login-cancel');
+        const registerCancel = document.getElementById('register-cancel');
+        const loginButton = document.getElementById('login-button');
+        const registerButton = document.getElementById('register-button');
+        const adminPanel = document.getElementById('admin-panel');
+        const userSelect = document.getElementById('user-select');
+        const roleSelect = document.getElementById('role-select');
+        const assignRoleButton = document.getElementById('assign-role');
+        const testerLink = document.getElementById('tester-link');
 
-    // Функция для сохранения текущего пользователя в localStorage
-    function saveCurrentUserToLocalStorage() {
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    }
+        // Новые элементы
+        const authLinks = document.getElementById('auth-links');
+        const userProfile = document.getElementById('user-profile');
+        const profileNickname = document.getElementById('profile-nickname');
+        const profileId = document.getElementById('profile-id');
+        const profileRole = document.getElementById('profile-role');
+        const logoutButton = document.getElementById('logout-button');
 
-    // Функция для генерации случайного ID пользователя
-    function generateUserId() {
-        return Math.floor(100 + Math.random() * 900); // ID от 100 до 999
-    }
+        // Массив для хранения пользователей (в реальном проекте нужно хранить на сервере)
+        let users = JSON.parse(localStorage.getItem('users')) || []; // Загружаем из localStorage
+        let currentUser = JSON.parse(localStorage.getItem('currentUser')); // Загружаем из localStorage
 
-    // Функция для отображения модального окна
-    function showModal(modal) {
-        modal.style.display = 'flex';
-    }
+        // ID counter, загружаем из localStorage или начинаем с 100
+        let nextId = parseInt(localStorage.getItem('nextId')) || 100;
 
-    // Функция для скрытия модального окна
-    function hideModal(modal) {
-        modal.style.display = 'none';
-    }
+        // Функция для сохранения пользователей в localStorage
+        function saveUsersToLocalStorage() {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
 
-    // Функция для отображения панели администратора
-    function showAdminPanel() {
-        adminPanel.style.display = 'block';
-    }
+        // Функция для сохранения текущего пользователя в localStorage
+        function saveCurrentUserToLocalStorage() {
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
 
-    // Функция для скрытия панели администратора
-    function hideAdminPanel() {
-        adminPanel.style.display = 'none';
-    }
+        // Функция для сохранения следующего ID в localStorage
+        function saveNextIdToLocalStorage() {
+            localStorage.setItem('nextId', nextId.toString());
+        }
 
-    // Функция для обновления списка пользователей в панели администратора
-    function updateUsersList() {
-        userSelect.innerHTML = '';
-        users.forEach(user => {
-            const option = document.createElement('option');
-            option.value = user.id;
-            option.textContent = user.username;
-            userSelect.appendChild(option);
+        // Функция для генерации  ID пользователя (теперь инкремент)
+        function generateUserId() {
+            const userId = nextId++;  // Use current nextId and then increment it
+            saveNextIdToLocalStorage(); // Save updated nextId
+            return userId;
+        }
+
+
+        // Функция для отображения модального окна
+        function showModal(modal) {
+            modal.style.display = 'flex';
+        }
+
+        // Функция для скрытия модального окна
+        function hideModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        // Функция для отображения панели администратора
+        function showAdminPanel() {
+            adminPanel.style.display = 'block';
+        }
+
+        // Функция для скрытия панели администратора
+        function hideAdminPanel() {
+            adminPanel.style.display = 'none';
+        }
+
+        // Функция для обновления списка пользователей в панели администратора
+        function updateUsersList() {
+            userSelect.innerHTML = '';
+            users.forEach(user => {
+                const option = document.createElement('option');
+                option.value = user.id;
+                option.textContent = user.username;
+                userSelect.appendChild(option);
+            });
+        }
+
+        // Функция для отображения ссылки для тестеров и админов
+        function showTesterLink() {
+            testerLink.style.display = 'block';
+        }
+
+        // Функция для скрытия ссылки для тестеров и админов
+        function hideTesterLink() {
+            testerLink.style.display = 'none';
+        }
+
+        // Функция для отображения профиля пользователя и скрытия ссылок входа/регистрации
+        function showUserProfile(user) {
+            authLinks.style.display = 'none';
+            profileNickname.textContent = `Никнейм: ${user.username}`;
+            profileId.textContent = `ID: ${user.id}`;
+            profileRole.textContent = `Роль: ${user.role}`;
+            userProfile.style.display = 'flex';  // Исправлено на 'flex'
+        }
+
+        // Функция для скрытия профиля пользователя и отображения ссылок входа/регистрации
+        function hideUserProfile() {
+            authLinks.style.display = 'flex';
+            userProfile.style.display = 'none';
+        }
+
+        // Обработчики событий для открытия и закрытия модальных окон
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showModal(loginModal);
         });
-    }
 
-    // Функция для отображения ссылки для тестеров и админов
-    function showTesterLink() {
-        testerLink.style.display = 'block';
-    }
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showModal(registerModal);
+        });
 
-    // Функция для скрытия ссылки для тестеров и админов
-    function hideTesterLink() {
-        testerLink.style.display = 'none';
-    }
-
-    // Функция для отображения профиля пользователя и скрытия ссылок входа/регистрации
-    function showUserProfile(user) {
-        authLinks.style.display = 'none';
-        profileNickname.textContent = `Никнейм: ${user.username}`;
-        profileId.textContent = `ID: ${user.id}`;
-        profileRole.textContent = `Роль: ${user.role}`;
-        userProfile.style.display = 'flex';  // Исправлено на 'flex'
-    }
-
-    // Функция для скрытия профиля пользователя и отображения ссылок входа/регистрации
-    function hideUserProfile() {
-        authLinks.style.display = 'flex';
-        userProfile.style.display = 'none';
-    }
-
-    // Обработчики событий для открытия и закрытия модальных окон
-    loginLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showModal(loginModal);
-    });
-
-    registerLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showModal(registerModal);
-    });
-
-    loginCancel.addEventListener('click', () => {
-        hideModal(loginModal);
-    });
-
-    registerCancel.addEventListener('click', () => {
-        hideModal(registerModal);
-    });
-
-    // Обработчик события для регистрации
-    registerButton.addEventListener('click', () => {
-        const username = document.getElementById('register-username').value;
-        const password = document.getElementById('register-password').value;
-
-        if (username && password) {
-            const newUser = {
-                id: generateUserId(),
-                username: username,
-                password: password,
-                role: 'user' // Роль по умолчанию
-            };
-            users.push(newUser);
-            saveUsersToLocalStorage(); // Сохраняем пользователей в localStorage
-            updateUsersList();
-            alert('Регистрация успешна!');
-            hideModal(registerModal);
-            currentUser = newUser; // Автоматический вход
-            saveCurrentUserToLocalStorage(); // Сохраняем текущего пользователя
-            showUserProfile(currentUser); // Отображение профиля
-            updateRoleBasedUI(); // Обновляем UI в зависимости от роли
-        } else {
-            alert('Пожалуйста, заполните все поля.');
-        }
-    });
-
-    // Обработчик события для входа
-    loginButton.addEventListener('click', () => {
-        const username = document.getElementById('login-username').value;
-        const password = document.getElementById('login-password').value;
-
-        const user = users.find(user => user.username === username && user.password === password);
-
-        if (user) {
-            currentUser = user;
-            saveCurrentUserToLocalStorage(); // Сохраняем текущего пользователя
-            alert(`Вход успешен! Добро пожаловать, ${username}!`);
+        loginCancel.addEventListener('click', () => {
             hideModal(loginModal);
-            showUserProfile(currentUser); // Отображение профиля
-            updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+        });
 
-        } else {
-            alert('Неверный логин или пароль.');
-        }
-    });
+        registerCancel.addEventListener('click', () => {
+            hideModal(registerModal);
+        });
 
+        // Обработчик события для регистрации
+        registerButton.addEventListener('click', () => {
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
 
-    // Обработчик события для назначения роли
-    assignRoleButton.addEventListener('click', () => {
-        const userId = parseInt(userSelect.value);
-        const newRole = roleSelect.value;
-
-        const user = users.find(user => user.id === userId);
-
-        if (user) {
-            user.role = newRole;
-            saveUsersToLocalStorage(); // Обновляем пользователей в localStorage
-            alert(`Роль для пользователя ${user.username} изменена на ${newRole}.`);
-            // Если текущий пользователь изменил свою роль, перезагружаем страницу.
-            if (currentUser && currentUser.id === userId) {
-                currentUser = user; // Update current user object
-                saveCurrentUserToLocalStorage();
-                updateRoleBasedUI();     // Обновляем UI
-                location.reload();  // Перезагружаем страницу (лучше переделать, но для простоты пока так)
+            if (username && password) {
+                const newUser = {
+                    id: generateUserId(),
+                    username: username,
+                    password: password,
+                    role: 'user' // Роль по умолчанию
+                };
+                users.push(newUser);
+                saveUsersToLocalStorage(); // Сохраняем пользователей в localStorage
+                updateUsersList();
+                alert('Регистрация успешна!');
+                hideModal(registerModal);
+                currentUser = newUser; // Автоматический вход
+                saveCurrentUserToLocalStorage(); // Сохраняем текущего пользователя
+                showUserProfile(currentUser); // Отображение профиля
+                updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+            } else {
+                alert('Пожалуйста, заполните все поля.');
             }
+        });
 
-        } else {
-            alert('Пользователь не найден.');
-        }
-    });
+        // Обработчик события для входа
+        loginButton.addEventListener('click', () => {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                currentUser = user;
+                saveCurrentUserToLocalStorage(); // Сохраняем текущего пользователя
+                alert(`Вход успешен! Добро пожаловать, ${username}!`);
+                hideModal(loginModal);
+                showUserProfile(currentUser); // Отображение профиля
+                updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+
+            } else {
+                alert('Неверный логин или пароль.');
+            }
+        });
 
 
-    // Обработчик события для выхода
-    logoutButton.addEventListener('click', () => {
-        currentUser = null;
-        localStorage.removeItem('currentUser'); //  Удаляем текущего пользователя
-        hideUserProfile();
-        hideAdminPanel();
-        hideTesterLink();
-    });
+        // Обработчик события для назначения роли
+        assignRoleButton.addEventListener('click', () => {
+            const userId = parseInt(userSelect.value);
+            const newRole = roleSelect.value;
 
-    // Функция для обновления UI в зависимости от роли пользователя
-    function updateRoleBasedUI() {
-        if (currentUser) {
-            if (currentUser.role === 'admin') {
-                showAdminPanel();
-                showTesterLink();
-            } else if (currentUser.role === 'tester') {
-                showTesterLink();
-                hideAdminPanel();
+            const user = users.find(user => user.id === userId);
+
+            if (user) {
+                user.role = newRole;
+                saveUsersToLocalStorage(); // Обновляем пользователей в localStorage
+                alert(`Роль для пользователя ${user.username} изменена на ${newRole}.`);
+                // Если текущий пользователь изменил свою роль, перезагружаем страницу.
+                if (currentUser && currentUser.id === userId) {
+                    currentUser = user; // Update current user object
+                    saveCurrentUserToLocalStorage();
+                    updateRoleBasedUI();     // Обновляем UI
+                    location.reload();  // Перезагружаем страницу (лучше переделать, но для простоты пока так)
+                }
+
+            } else {
+                alert('Пользователь не найден.');
+            }
+        });
+
+
+        // Обработчик события для выхода
+        logoutButton.addEventListener('click', () => {
+            currentUser = null;
+            localStorage.removeItem('currentUser'); //  Удаляем текущего пользователя
+            hideUserProfile();
+            hideAdminPanel();
+            hideTesterLink();
+        });
+
+        // Функция для обновления UI в зависимости от роли пользователя
+        function updateRoleBasedUI() {
+            if (currentUser) {
+                if (currentUser.role === 'admin') {
+                    showAdminPanel();
+                    showTesterLink();
+                } else if (currentUser.role === 'tester') {
+                    showTesterLink();
+                    hideAdminPanel();
+                } else {
+                    hideAdminPanel();
+                    hideTesterLink();
+                }
             } else {
                 hideAdminPanel();
                 hideTesterLink();
             }
-        } else {
-            hideAdminPanel();
-            hideTesterLink();
         }
-    }
 
-    // Инициализация: добавление администратора по умолчанию (только если еще нет пользователей)
-    if (users.length === 0) {
-        const adminUser = {
-            id: generateUserId(),
-            username: 'admin',
-            password: 'admin',
-            role: 'admin'
-        };
-        users.push(adminUser);
-        saveUsersToLocalStorage();
-         // После создания админа сразу его логиним
-        currentUser = adminUser;
-         saveCurrentUserToLocalStorage();
-    }
+        // Инициализация: добавление администратора по умолчанию (только если еще нет пользователей)
+        if (users.length === 0) {
+            const adminUser = {
+                id: generateUserId(),
+                username: 'admin',
+                password: 'admin',
+                role: 'admin'
+            };
+            users.push(adminUser);
+            saveUsersToLocalStorage();
+             // После создания админа сразу его логиним
+            currentUser = adminUser;
+             saveCurrentUserToLocalStorage();
+        }
 
-    updateUsersList();
+        updateUsersList();
 
-    // При загрузке страницы, проверяем, есть ли текущий пользователь в localStorage
-    if (currentUser) {
-        showUserProfile(currentUser);
-         updateRoleBasedUI(); // Обновляем UI в зависимости от роли
-    }
+        // При загрузке страницы, проверяем, есть ли текущий пользователь в localStorage
+        if (currentUser) {
+            showUserProfile(currentUser);
+             updateRoleBasedUI(); // Обновляем UI в зависимости от роли
+        }
 
 
-</script>
+    </script>
 </body>
 
 </html>
